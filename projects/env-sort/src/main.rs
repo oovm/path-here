@@ -1,11 +1,31 @@
+pub use errors::XResult;
+
 mod errors;
 
-pub use errors::{Error, Result};
+#[cfg(target_os = "windows")]
+pub mod windows;
+pub mod utils;
 
 
-pub fn main() {
-    let path = std::env::var_os("PATH");
-    let path_ext = std::env::var_os("PATHEXT");
-    println!("{:?}", path);
-    println!("{:?}", path_ext);
+pub struct App {}
+
+
+pub struct Runner {
+    execute: bool,
+    verify: bool
+}
+
+impl Default for Runner {
+    fn default() -> Self {
+        Self {
+            execute: false,
+            verify: false,
+        }
+    }
+}
+
+
+fn main() {
+    let r = Runner::default();
+    r.run().unwrap();
 }

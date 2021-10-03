@@ -1,6 +1,36 @@
-#[derive(Debug, Copy, Clone)]
-pub enum Error {
-    UnknownError
+use std::env::VarError;
+use std::error::Error;
+use std::fmt::{Debug, Display, Formatter};
+
+pub type XResult<T = ()> = Result<T, XError>;
+
+#[derive(Debug, Clone)]
+pub struct XError {
+    message: String,
 }
 
-pub type Result<T> = std::result::Result<T, Error>;
+impl Display for XError {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        Debug::fmt(self, f)
+    }
+}
+
+impl Error for XError {}
+
+
+impl From<VarError> for XError {
+    fn from(error: VarError) -> Self {
+        XError {
+            message: error.to_string(),
+        }
+    }
+}
+
+
+impl From<std::io::Error> for XError {
+    fn from(error: std::io::Error) -> Self {
+        XError {
+            message: error.to_string(),
+        }
+    }
+}
