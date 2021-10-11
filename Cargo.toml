@@ -1,7 +1,7 @@
 [workspace]
 members = ["projects/*"]
 default-members = [
-    "projects/env-sort",
+    "projects/path-here",
 ]
 exclude = [
     "projects/.DS_Store",

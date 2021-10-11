@@ -1,16 +1,18 @@
-Env Sort
-=====================
+Path Here
+=========
+
+Double click to add current directory to `$PATH`
 
 ## Install
 
 ```sh
-cargo install env-sort -f
+cargo install path-here -f
 ```
 
 ## Options
 
 ```yaml
-usage: env-sort.exe [OPTIONS]
+usage: path-here.exe [OPTIONS]
 
 options:
   -e, --execute
@@ -30,8 +32,8 @@ options:
 ## Install
 
 ```sh
-env-sort    # Preview
-env-sort -e # Execute
+path-here    # Preview
+path-here -e # Execute
 ```
 
 - Example of successful running results:
