@@ -16,7 +16,6 @@ impl Display for XError {
         Debug::fmt(self, f)
     }
 }
-
 impl Error for XError {}
 
 impl From<VarError> for XError {

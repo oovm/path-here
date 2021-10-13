@@ -14,14 +14,14 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            artifact_name: env-sort
-            asset_name: env-sort-linux-amd64
+            artifact_name: path-here
+            asset_name: path-here-linux-amd64
           - os: windows-latest
-            artifact_name: env-sort.exe
-            asset_name: env-sort.exe
+            artifact_name: path-here.exe
+            asset_name: path-here.exe
           - os: macos-latest
-            artifact_name: env-sort
-            asset_name: env-sort-mac-amd64
+            artifact_name: path-here
+            asset_name: path-here-mac-amd64
 
     steps:
       - uses: hecrj/setup-rust-action@v1
